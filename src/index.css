@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-parchment: #f4f1ea;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-parchment);
+  }
+}
