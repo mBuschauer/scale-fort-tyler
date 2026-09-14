@@ -1,14 +1,15 @@
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type SubmitEvent } from "react";
 import { lookup, type Item } from "../scale/catalog";
-import CloseIcon from "./CloseIcon";
+import CloseIcon from "./CloseButton";
 
 type ModalProps = {
   unlocked: string[];
   onUnlock: (item: Item) => void;
   onClose: () => void;
+  unlockXical: () => void;
 };
 
-export default function Modal({ unlocked, onUnlock, onClose }: ModalProps) {
+export default function Modal({ unlocked, onUnlock, onClose, unlockXical }: ModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [typed, setTyped] = useState("");
@@ -18,14 +19,21 @@ export default function Modal({ unlocked, onUnlock, onClose }: ModalProps) {
     inputRef.current?.focus();
   }, []);
 
+  const isXical = typed.trim().toUpperCase() === "XICAL";
   const match = lookup(typed);
-  const unknown = typed.trim() !== "" && !match;
+  const unknown = typed.trim() !== "" && !match && !isXical;
   const taken = !!match && unlocked.includes(match.code);
 
   const close = () => dialogRef.current?.close();
 
-  const submit = (event: FormEvent) => {
+  const submit = (event: SubmitEvent) => {
     event.preventDefault();
+    if (isXical) {
+      localStorage.setItem("xicalUnlocked", JSON.stringify(true));
+      unlockXical();
+      close();
+      return;
+    }
     if (!match || taken) return;
     onUnlock(match);
     close();
@@ -113,7 +121,7 @@ export default function Modal({ unlocked, onUnlock, onClose }: ModalProps) {
 
           <button
             type="submit"
-            disabled={!match || taken}
+            disabled={!isXical && (!match || taken)}
             className="mt-2 w-full rounded-xl bg-slate-900 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-slate-900/30 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-slate-300"
           >
             {taken ? "Already unlocked" : "Unlock"}

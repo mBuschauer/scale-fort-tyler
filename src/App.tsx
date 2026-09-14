@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Celebration from "./components/Celebration";
+import Chat from "./components/Chat";
+import Couatl from "./components/Couatl";
 import Modal from "./components/Modal";
 import Panel from "./components/Panel";
 import Scale from "./components/Scale";
@@ -15,7 +17,17 @@ export default function App() {
   const [queued, setQueued] = useState<Item[]>(restoreUnlocked);
   const [hovered, setHovered] = useState<Matter.Body | null>(null);
   const [celebration, setCelebration] = useState<Balance | null>(null);
+
+  const [coutalUnlocked, setCoutalUnlocked] = useState(false);
+  const [chatPanelOpen, setChatPanelOpen] = useState(false);
   const lastSpawn = useRef(0);
+
+  useEffect(() => {
+    const xicalUnlocked = localStorage.getItem("xicalUnlocked")
+    if (xicalUnlocked) {
+      setCoutalUnlocked(true);
+    } 
+  }, [])
 
   useEffect(() => {
     const next = queued[0];
@@ -49,6 +61,9 @@ export default function App() {
 
   return (
     <div className="fixed inset-0 flex flex-col bg-parchment font-sans text-slate-900 md:block">
+      {coutalUnlocked && <Couatl onClick={() => setChatPanelOpen(!chatPanelOpen)} />}
+      {coutalUnlocked && chatPanelOpen && <Chat onClose={() => setChatPanelOpen(false)} />}
+
       <main className="relative min-h-0 flex-1 md:absolute md:inset-0">
         <Scale
           weights={weights}
@@ -70,6 +85,7 @@ export default function App() {
           unlocked={unlocked}
           onUnlock={(item) => setQueued((prev) => [...prev, item])}
           onClose={() => setUnlocking(false)}
+          unlockXical={() => setCoutalUnlocked(true)}
         />
       )}
     </div>

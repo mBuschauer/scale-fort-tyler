@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import CloseIcon from "./CloseIcon";
+import CloseIcon from "./CloseButton";
 
 type PanelProps = {
   weights: Matter.Body[];

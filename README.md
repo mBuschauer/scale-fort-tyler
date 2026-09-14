@@ -1,6 +1,8 @@
 # Fort Tyler Scale
 
-A browser puzzle built around a two-pan balance. Players type codes to unlock items, drag them onto the pans, and read the tilt of the beam. Masses are never shown, so the only way to compare items is to weigh them against each other. Two collections must never share the scale: if they do, the scale blows its load clear. The code was almost entirely written by claude fable though checked briefly by me (mostly due to time constraints).
+The code was almost entirely written by Claude, though checked briefly by me. If I had more than a day for this project, I would've written it by hand.
+
+A browser puzzle built around a two-pan balance. Players type codes to unlock items, drag them onto the pans, and read the tilt of the beam. Masses are never shown, so the only way to compare items is to weigh them against each other. Two collections must never share the scale: if they do, the scale blows its load clear. 
 
 ## Playing
 

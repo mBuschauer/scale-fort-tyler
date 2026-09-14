@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import type { Balance, BalanceItem } from "../scale/balance";
-import CloseIcon from "./CloseIcon";
+import CloseIcon from "./CloseButton";
 
 type CelebrationProps = {
   balance: Balance;

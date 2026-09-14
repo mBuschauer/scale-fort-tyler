@@ -1,8 +1,4 @@
-type CloseIconProps = {
-  className?: string;
-};
-
-export default function CloseIcon({ className = "size-3.5" }: CloseIconProps) {
+export default function CloseIcon({ className = "size-3.5" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 16 16"
