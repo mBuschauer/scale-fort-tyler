@@ -18,16 +18,11 @@ export default function App() {
   const [hovered, setHovered] = useState<Matter.Body | null>(null);
   const [celebration, setCelebration] = useState<Balance | null>(null);
 
-  const [coutalUnlocked, setCoutalUnlocked] = useState(false);
+  const [coutalUnlocked, setCoutalUnlocked] = useState(
+    () => localStorage.getItem("xicalUnlocked") !== null
+  );
   const [chatPanelOpen, setChatPanelOpen] = useState(false);
   const lastSpawn = useRef(0);
-
-  useEffect(() => {
-    const xicalUnlocked = localStorage.getItem("xicalUnlocked")
-    if (xicalUnlocked) {
-      setCoutalUnlocked(true);
-    } 
-  }, [])
 
   useEffect(() => {
     const next = queued[0];
