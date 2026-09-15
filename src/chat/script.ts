@@ -38,7 +38,7 @@ export const script: ChatEntry[] = [
     answer: "A clutch.",
   },
   {
-    questions: ["are you a ghost", "are you dead", "r u dead"],
+    questions: ["are you a ghost", "are you dead", "are u dead", "r u dead", "r you dead"],
     answer: "No.",
   },
   {
@@ -48,7 +48,7 @@ export const script: ChatEntry[] = [
 
   // --- The Gate & Scale Puzzle ---
   {
-    questions: ["how do we open the door", "how do we open the gate", "how to open the door", "how does the door open", "how do we get in",],
+    questions: ["how do we open the door", "how do we open the gate", "how to open the door", "how does the door open", "how do we get in", "how do we get past you"],
     answer: "Balance the scale.",
   },
   {
@@ -91,7 +91,7 @@ export const script: ChatEntry[] = [
   },
   {
     questions: ["will you attack us", "will you fight us", "are you hostile"],
-    answer: "If provoked.",
+    answer: "If you do.",
   },
   {
     questions: ["can we pass", "let us through", "let us pass", "can we go in"],

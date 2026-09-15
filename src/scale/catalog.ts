@@ -16,7 +16,7 @@ export const CATALOG = {
     color: "#a8dadc",
     size: 38,
   },
-  C2: {
+  EWT: {
     name: "Emerald Wyrm Tooth",
     collection: "Celestial Relics",
     mass: 7,
