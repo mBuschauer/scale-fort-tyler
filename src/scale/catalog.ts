@@ -72,8 +72,8 @@ export const CATALOG = {
     color: "#495057",
     size: 60,
   },
-  CBF: {
-    name: "Cannonball fragment",
+  SEI: {
+    name: "Seismic Munition",
     collection: "Military Remnants",
     mass: 27,
     color: "#343a40",
