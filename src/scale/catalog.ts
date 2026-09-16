@@ -31,14 +31,14 @@ export const CATALOG = {
     size: 44,
   },
   CSI: {
-    name: "Coiled serpent idol",
+    name: "Coiled Serpent Idol",
     collection: "Celestial Relics",
     mass: 9,
     color: "#588157",
     size: 46,
   },
   GHD: {
-    name: "Gilded halo disk",
+    name: "Gilded Halo Disk",
     collection: "Celestial Relics",
     mass: 10,
     color: "#d4a017",
