@@ -23,8 +23,8 @@ export const CATALOG = {
     color: "#2a9d8f",
     size: 42,
   },
-  SSM: {
-    name: "Sunstone medallion",
+  WSC: {
+    name: "Wyrmscale Cloak",
     collection: "Celestial Relics",
     mass: 8,
     color: "#e9c46a",
